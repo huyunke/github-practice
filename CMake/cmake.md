@@ -216,3 +216,30 @@ target_link_libraries(User
 1️⃣：**子目录不能“反向依赖”父目录**
 2️⃣：顺序很重要，如果：`user` 依赖 `utils`，那 **utils 一定要在 user 前面**
 3️⃣：子目录里不要写 project()
+
+### CMake语言基础
+CMakeLang 中唯一的基础类型是字符串和列表。CMake 中的每个对象都是字符串，列表本身是包含分号作为分隔符的字符串
+
+- `set()`用来定义或修改一个 CMake 变量
+  基本用法：
+```cmake
+set(VAR value)  
+```
+  变量的值可以通过大括号展开访问，例如我们想用[[message()]] 命令打印由 `var` 命名的字符串。
+```cmake
+set(var "World!")
+message("Hello ${var}")
+```
+
+- `foreach()`遍历列表
+```cmake
+set(stooges "Moe;Larry")
+list(APPEND stooges "Curly")
+
+message("Stooges contains: ${stooges}")
+
+foreach(stooge IN LISTS stooges)
+  message("Hello, ${stooge}")
+endforeach()
+```
+  
