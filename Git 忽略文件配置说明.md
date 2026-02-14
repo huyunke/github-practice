@@ -6,7 +6,8 @@
 
 3. 提交 .gitignore 文件  
 ```bash  
-git add .gitignoregit commit -m "Add .gitignore to exclude utils, sqlite3.h and cryptopp"
+git add .gitignore
+git commit -m "Add .gitignore to exclude utils, sqlite3.h and cryptopp"
 ```  
   
 3. 如果文件已经被跟踪 （以utils/和sqlite3.h 为例）**如果某个文件已经被 Git 跟踪（已经提交过），即使添加到 `.gitignore` 也不会自动忽略**
