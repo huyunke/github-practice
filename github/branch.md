@@ -21,13 +21,14 @@
 ##### 方法 1：在功能分支上合并 main（Merge）
 1. 切换到你的功能分支
 ```bash
-git checkout feature/book-issue-report
+git checkout 功能分支名称
 ```
 2. 从 main 拉取最新更新
 ```bash
-git fetch origin
+git fetch 远程仓库的默认名字(一般是origin)
 ```
-`origin` 是你远程仓库的默认名字，如果你的 main 在别的远程名下，请替换，可以通过`git remote -v`命令来查看你的远程仓库名字
+`origin` 是你远程仓库的默认名字，如果你的 main 在别的远程名下，请替换
+可以通过`git remote -v`命令来查看你的远程仓库名字
 输出示例
 ```text
 origin  https://github.com/你的用户名/仓库名.git (fetch)
@@ -59,14 +60,13 @@ git merge origin/main
 变基会把你的分支“移动到最新 main 的基础上”，提交历史更整洁
 1. 切换到你的功能分支
 ```bash
-git checkout feature/book-issue-report 
+git checkout 功能分支的名称
 ```
-2. 拉取最新 main(前提是该分支无changes，如果有可以先暂存
-3. ，等拉取最新的代码之后再恢复)==这一步只是把远程最新内容拉到本地，不会自动合并==
+2. 拉取最新 main(前提是该分支无changes，如果有可以先暂存，等拉取最新的代码之后再恢复)==这一步只是把远程最新内容拉到本地，不会自动合并==
 ```bash
 git fetch origin
 ```
-3. 在功能分支上变基 main
+3. 在功能分支上`rebase main`
 ```bash
 git rebase origin/main
 ```
@@ -90,4 +90,7 @@ git stash pop
 
 #### 其他
 ![[8bf8044bddd053c138b08040ed0d2f67.png]]
-当前位置为main分支，点击想要切换的分支然后点击签出即可跳转至该分支
+当前位置为main分支，点击想要切换的分支然后点击`签出`即可跳转至该分支
+
+![[2af9bc29fcbfd22afd3c65e632ec8199.png]]
+查看分支图
