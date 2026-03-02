@@ -1,1 +1,1 @@
-![[33ff82337c8b2a698a5d8f44f1d4b9d7.png]]
+![](33ff82337c8b2a698a5d8f44f1d4b9d7.png)

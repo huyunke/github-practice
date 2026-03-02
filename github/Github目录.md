@@ -5,6 +5,6 @@
 - [GitHub 语言统计与 .gitattributes 使用指南](GitHub%20语言统计与%20.gitattributes%20使用指南.md)
 - [conventional commit](conventional%20commit.md)
 - [git命令](git命令.md)
-- [git命令](git命令.md)
+- [github杂七杂八](github杂七杂八.md)
 
 
