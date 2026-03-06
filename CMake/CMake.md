@@ -33,8 +33,8 @@ cmake CMakeLists.txt文件路径 -DCMAKE_CXX_STANDARD=11
 ```
 
 ##### 文件搜索
-- 如果一个项目里边的源文件很多，在编写`CMakeLists.txt`文件的时候不可能将项目目录中的各个文件罗列出来，那太麻烦了，而且也很容易出错
-- 所以，CMake为我们提供了搜索文件的命令，他就是`file`
+- 如果一个项目里边的源文件很多，在编写`CMakeLists.txt`文件的时候不可能将项目目录中的各个文件罗列出来，那太麻烦了，而且也很容易出错，这里有两种办法进行文件搜索
+- 方法一：`file`
 ```cmake
 file(GLOB 变量名 要搜索的文件路径和文件类型)
 file(GLOB_RECURSE 变量名 要搜索的文件路径和文件类型)
@@ -46,4 +46,35 @@ file(GLOB_RECURSE 变量名 要搜索的文件路径和文件类型)
 #关于要搜索的文件路径和类型可以加双引号，也可不加
 file(GLOB MAIN_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 file(GLOB MAIN_HEAD ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
+```
+- 方法二：`aux_source_directory`
+```bash
+aux_source_directory(要搜索的目录 变量名)
+```
+
+##### 指定头文件路径
+```cmake
+include_directories(头文件路径)
+```
+
+##### 制作库
+- 关于[静态库和动态库](静态库和动态库.md)的介绍
+- 源文件列表可以通过`file`或者`aux_source_directory`来获得
+1. 制作静态库
+```cmake
+add_library(库名称 STATIC 源文件1 [源文件2] ...) 
+```
+
+2. 制作动态库
+```cmake
+add_library(库名称 SHARED 源文件1 [源文件2] ...) 
+```
+
+- 指定存放路径
+```cmake
+#设置动态库的存放路径
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+
+#设置静态库的存放路径
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
 ```
