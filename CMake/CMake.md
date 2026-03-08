@@ -1,3 +1,13 @@
+##### 注释
+- 注释行：`CMake`使用`#`进行行注释，可以放在任何位置
+- 注释块：：`CMake`使用`#[[]]`进行块注释
+
+##### 基础项目构建流程
+- `cmake_minimum_require()`:指定使用的 cmake 的最低版本,可选，非必须，如果不加可能会有警告
+- `project(项目名)`:定义工程名([project()](project().md)详细食用方案)
+- `add_executable(可执行程序名 源文件1 源文件2...)`,各个源文件之间可以采用空格或者分号进行分隔
+- 构建隔离，为了避免生成的中间文件污染源码目录，建议创建`build`目录，并在其中执行`cmake...`和`make`(但是CLion 和大多数现代 IDE 默认采用脱源构建：即编译产物不会污染源码目录)
+
 ##### 定义变量
 ```cmake
 # 定义普通变量
@@ -14,7 +24,7 @@ add_executable(app ${SRC_LIST})#通过${}获取变量的值
 
 除此之外还可以`定义缓存变量`和`内部缓存变量`，不过我不知道在什么情况下需要定义这两种变量，所以不讲了🥹
 
-##### 指定使用的C++标准
+##### 指定使用的C++标准（我没有试过这个）
 - 在编写C++程序的时候可能会用到C++11，C++14等新特性，所以需要在编译命令中指定出要使用哪个标准
 - app为可执行文件名称
 ```bash
@@ -34,7 +44,7 @@ cmake CMakeLists.txt文件路径 -DCMAKE_CXX_STANDARD=11
 
 ##### 文件搜索
 - 如果一个项目里边的源文件很多，在编写`CMakeLists.txt`文件的时候不可能将项目目录中的各个文件罗列出来，那太麻烦了，而且也很容易出错，这里有两种办法进行文件搜索
-- 方法一：`file`
+- 方法一：`file`支持**递归搜索**
 ```cmake
 file(GLOB 变量名 要搜索的文件路径和文件类型)
 file(GLOB_RECURSE 变量名 要搜索的文件路径和文件类型)
@@ -78,3 +88,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 #设置静态库的存放路径
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
 ```
+
+##### add_subdirectory（目录名）
+- 核心作用是**进入子目录并执行那里的 `CMakeLists.txt`**
+- **创建子工程**：它建立了一个父子关系。父目录定义的变量通常可以被子目录继承
+- **独立构建目标**：通常每个子目录下都有自己的 `add_executable()` 或 `add_library()`。当你运行顶层编译时，CMake 会按顺序把它们全算进去
