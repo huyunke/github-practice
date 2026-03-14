@@ -76,4 +76,10 @@ target_link_libraries(my_rag_project
     optimized some_lib.lib
 )
 ```
+
+### 7.拥有权和所有权
+- **拥有它（Ownership）**：意味着你负责在不需要它时把它毁掉。
+- 当你写 `void func(std::unique_ptr<T> arg)` 时，你是在声明：**“我是新房东，这个对象以后归我管，我执行完就把它拆了。”**
     
+- **使用它（Access）**：意味着你默认别人会负责毁掉它，你只是趁它活着的时候用一下。
+- 当你写 `void func(T& arg)` 时，你是在声明：**“我只是个租客，我假设房东（调用者）会让这个对象一直活着直到我用完。”**
