@@ -54,7 +54,7 @@ target_sources(MyLib
 
 因为 CMake 会自动把 `include` 和 `extra_inc` 加入到目标的包含路径中。对于用户来说，他们只需要： `#include <MyLib/core.h>` 或 `#include <MyLib/special.h>`
 
-####  自动化的安装与导出
+####  自动化的安装与导出（不过无法解决ABI兼容问题）
 假设你正在开发一个名为`MyLib`的库
 - 库作者的视角
 - 以下代码包含了：定义目标 $\rightarrow$ 绑定头文件 $\rightarrow$ 配置安装 $\rightarrow$ 生成导出说明书
