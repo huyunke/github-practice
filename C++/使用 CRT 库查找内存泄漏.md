@@ -101,7 +101,7 @@ _CrtMemState s1, s2, s3;
 _CrtMemCheckpoint(&s1);
 
 // --- 执行你怀疑有问题的代码 ---
-DoSomethingComplex(); 
+...
 
 // 2. 记录结束点的内存状态
 _CrtMemCheckpoint(&s2);
@@ -149,3 +149,64 @@ _CrtSetBreakAlloc(75);
 |---|---|---|
 |**内存 Dump 比对**|确定**哪一段逻辑**导致了内存增长。|`_CrtMemCheckpoint`|
 |**分配 Break**|精确定位**哪一次特定的分配**导致了泄漏。|`_CrtSetBreakAlloc`|
+
+#### 试验
+```cpp
+#define _CRTDBG_MAP_ALLOC  
+#include <stdlib.h>  
+#include <crtdbg.h>  
+#include <iostream>  
+  
+// Simulating a function with a memory leak  
+void ProcessData(int index) {  
+    int* data = new int[5];
+  
+    // Logic error: Forget to delete when index is 10    
+    if (index != 10) {  
+        delete[] data;  
+    }  
+}  
+  
+int main() {  
+    // PART 1: Environment Setup
+    // Direct reports to the Visual Studio Output window    
+    _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);  
+  
+    // Enable automatic leak check at program exit  
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);  
+  
+    // PART 2: Precise Targeting (Optional)
+    // Uncomment and replace with the allocation number from your previous run    
+    // _CrtSetBreakAlloc(156);  //填写花括号里面的数字，不一定是156
+    std::cout << "Starting Memory Snapshot Comparison" << std::endl;  
+  
+    // PART 3: Memory Dump Comparison (The "Clamp" Technique)
+    _CrtMemState s1, s2, s3;  
+  
+    // Take Snapshot A (Before the suspected logic)  
+    _CrtMemCheckpoint(&s1);  
+  
+    for (int i = 0; i < 20; ++i) {  
+        ProcessData(i);  
+    }  
+  
+    // Take Snapshot B (After the suspected logic)  
+    _CrtMemCheckpoint(&s2);  
+  
+    // Compare the two snapshots  
+    if (_CrtMemDifference(&s3, &s1, &s2)) {  
+        std::cout << "Memory change detected! Dumping statistics..." << std::endl; 
+
+        _CrtMemDumpStatistics(&s3);  
+    } else {  
+        std::cout << "No memory leak detected in this block." << std::endl;  
+    }  
+  
+    std::cout << "Program finished. Check the 'Output' window for details" << std::endl;  
+  
+    return 0;  
+}
+```
+![](97160c6b5bde0dafb4d267df93e0a938.png)
+填写157到`_CrtSetBreakAlloc()`中，重新调试
+![](99ef3b4abf170e0ff1882f5d55253bdc.png)
