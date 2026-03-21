@@ -1,4 +1,5 @@
-回调函数，由 Windows 操作系统在发生某些事情（比如点击鼠标、调整窗口大小）时调用的
+- 回调函数，由 Windows 操作系统在发生某些事情（比如点击鼠标、调整窗口大小）时调用的
+- 只要一个函数返回值类型为`LRESULT`，调用约定为`CALLBACK`，参数列表为`(HWND, UINT, WPARAM, LPARAM)`它就是一个合格的“窗口过程函数”，可以被赋值给 `WNDCLASSEX` 结构体，不一定叫`WndProc`
 ```cpp
 LRESULT CALLBACK WndProc(
    _In_ HWND   hWnd,      // 窗口句柄
