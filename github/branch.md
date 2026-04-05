@@ -89,8 +89,8 @@ git stash pop
 ```
 
 #### 其他
-![](8bf8044bddd053c138b08040ed0d2f67.png)
+![](图片/8bf8044bddd053c138b08040ed0d2f67.png)
 当前位置为main分支，点击想要切换的分支然后点击`签出`即可跳转至该分支
 
-![](2af9bc29fcbfd22afd3c65e632ec8199.png)
+![](图片/2af9bc29fcbfd22afd3c65e632ec8199.png)
 查看分支图

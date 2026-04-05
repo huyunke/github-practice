@@ -1,13 +1,17 @@
 所有的操作均在`github desktop`上执行
-#### 根据本地文件来创建仓库
+#### 基于本地文件来创建仓库
+##### 适用场景
+- 当你手头有一个已经开发了一段时间、但之前一直靠“手动复制文件夹”来做备份的项目时
+
+##### 具体步骤
 1. 点`File`选择`Add local repository...`
-![](947816d163ab8b547aa48a5c068b514e.png)
+![](图片/947816d163ab8b547aa48a5c068b514e.png)
 2. 手动填写想要创建仓库的文件夹的地址或者点击`Choose`来填写，然后点击`Add repository`
-![](62e71cae6e91020eade528bf430fb1d3.png)
+![](图片/62e71cae6e91020eade528bf430fb1d3.png)
 3. 如果你选中的文件夹之前从来没有用过 Git，即当前目录中不存在`.git`文件夹，那么界面就会如下所示，只需要点击`create a repository`就可以了
-![](273da7e35ffee47d8c1fe5b3760a3f7d.png)
+![](图片/273da7e35ffee47d8c1fe5b3760a3f7d.png)
 4. 之后填写仓库信息，然后点击`Create repository`(勾选`Initialize this repository with README`就会为这个仓库添加README.md，Git ignore和License的介绍在下文，如果没想好直接保持`None`就行了)
-![](ce6070982097fe36514c4b3d5d5d84b8.png)
+![](图片/ce6070982097fe36514c4b3d5d5d84b8.png)
 - `Git ignore（Git 忽略文件）`
   - 当你写代码时，项目文件夹里会产生很多**不需要**上传到GitHub的文件，比如：
     - **缓存文件**或临时编译文件（如 `.pyc`, `.exe`, `node_modules`）。
@@ -27,4 +31,14 @@
 | Apache 2.0 | 类似 MIT，但增加了关于**专利授权**的保护条款                 |
 | GNU GPLv3  | **传染性协议**。如果别人用了你的代码，那他们的项目也必须开源并使用 GPL 协议 |
 5. 但是此时你还不能在github主页上看到这个仓库，因为他还没有被发布到github上，点击`Publish repository`即可发布到github上，然后你就可以在你的主页上看到这个仓库了🤪在点击 `Publish` 时，会有一个选项问你是否要 **Keep this code private**（保持私有）。如果你不想让全世界看到你的代码，记得勾选它
-![](cc262d2684b6e6bd1b797bacb573fad5.png)
+![](图片/cc262d2684b6e6bd1b797bacb573fad5.png)
+
+#### 在github上创建仓库
+1. 点击右上角的头像选择`Repository`
+![](图片/Pasted%20image%2020260405204722.png)
+2. 选择`New`
+![](图片/Pasted%20image%2020260405204933.png)
+3. 填写仓库信息（参照上文），然后点击`Create repository`
+![](图片/Pasted%20image%2020260405205033.png)
+4. 完成上述操作后会进入创建好的仓库的界面，点击`Code`，然后点击`Open with Github Desktop`，就可以把仓库克隆到本地了
+![](图片/Pasted%20image%2020260405205252.png)
