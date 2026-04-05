@@ -5,13 +5,13 @@
 
 ##### 具体步骤
 1. 点`File`选择`Add local repository...`
-![](图片/947816d163ab8b547aa48a5c068b514e.png)
+![](../图片/947816d163ab8b547aa48a5c068b514e.png)
 2. 手动填写想要创建仓库的文件夹的地址或者点击`Choose`来填写，然后点击`Add repository`
-![](图片/62e71cae6e91020eade528bf430fb1d3.png)
+![](../图片/62e71cae6e91020eade528bf430fb1d3.png)
 3. 如果你选中的文件夹之前从来没有用过 Git，即当前目录中不存在`.git`文件夹，那么界面就会如下所示，只需要点击`create a repository`就可以了
-![](图片/273da7e35ffee47d8c1fe5b3760a3f7d.png)
+![](../图片/273da7e35ffee47d8c1fe5b3760a3f7d.png)
 4. 之后填写仓库信息，然后点击`Create repository`(勾选`Initialize this repository with README`就会为这个仓库添加README.md，Git ignore和License的介绍在下文，如果没想好直接保持`None`就行了)
-![](图片/ce6070982097fe36514c4b3d5d5d84b8.png)
+![](../图片/ce6070982097fe36514c4b3d5d5d84b8.png)
 - `Git ignore（Git 忽略文件）`
   - 当你写代码时，项目文件夹里会产生很多**不需要**上传到GitHub的文件，比如：
     - **缓存文件**或临时编译文件（如 `.pyc`, `.exe`, `node_modules`）。
@@ -35,10 +35,10 @@
 
 #### 在github上创建仓库
 1. 点击右上角的头像选择`Repository`
-![](图片/Pasted%20image%2020260405204722.png)
+![](../图片/Pasted%20image%2020260405204722.png)
 2. 选择`New`
-![](图片/Pasted%20image%2020260405204933.png)
+![](../图片/Pasted%20image%2020260405204933.png)
 3. 填写仓库信息（参照上文），然后点击`Create repository`
-![](图片/Pasted%20image%2020260405205033.png)
+![](../图片/Pasted%20image%2020260405205033.png)
 4. 完成上述操作后会进入创建好的仓库的界面，点击`Code`，然后点击`Open with Github Desktop`，就可以把仓库克隆到本地了
-![](图片/Pasted%20image%2020260405205252.png)
+![](../图片/Pasted%20image%2020260405205252.png)
