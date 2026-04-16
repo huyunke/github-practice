@@ -1,4 +1,3 @@
-我们把顶点和片段着色器储存为两个叫做`shader.vs`和`shader.fs`的文件，或者其他后缀名的文件，只要能区分就行
 `Shader.h`
 ```cpp
 class Shader{  
